@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Roles_dgacConnectionString-Web.config Connection String" description="Roles_dgacConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=win-sqlserv-01;Initial Catalog=Roles_dgac;User ID=adminsql;Password=sistema*-!" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\proyectos\\confidenciales\\Roles_dgac\\Roles_dgac\\Roles_dgac\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Roles_dgacConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="roles_dgac" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\proyectos\\confidenciales\\Roles_dgac\\Roles_dgac\\Roles_dgac\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\proyectos\\confidenciales\\Roles_dgac\\Roles_dgac\\Roles_dgac\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Roles_dgacConnectionString-Web.config Connection String" description="" value="Data Source=win-sqlserv-01;Initial Catalog=Roles_dgac;User ID=adminsql;Password=sistema*-!" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\proyectos\\confidenciales\\Roles_dgac\\Roles_dgac\\Roles_dgac\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Roles_dgacConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

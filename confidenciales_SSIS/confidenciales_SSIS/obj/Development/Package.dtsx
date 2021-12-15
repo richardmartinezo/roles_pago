@@ -1,0 +1,1045 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/4/2015 8:00:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-SERVAPP-01"
+  DTS:CreatorName="DGAC\aldo"
+  DTS:DTSID="{4A0D8169-3300-4265-BE25-2D9677B69460}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2344.23"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{4E4CF89C-C43F-40DE-9EB8-85AB129CFB9A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{ADD1B65C-53FB-4921-A92A-FD0ACFCF3842}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\soft\DGAC FUNCIONARIOS Y CEDULA_6.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5783EDB7-A40F-4D49-889F-99BEA21D7132}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\soft\roles_dgac\nominas.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[win-sqlserv-01.Roles_dgac.adminsql]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{77CAC8B7-F76F-42B8-90FB-BB255F6F6824}"
+      DTS:ObjectName="win-sqlserv-01.Roles_dgac.adminsql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=win-sqlserv-01;User ID=adminsql;Initial Catalog=Roles_dgac;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAG8jCcI44+UOncw0SAAfZ0QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD6VgVRN3uRfBtTto/4mG9FAAAAAASAAACgAAAAEAAAAFUZHLTj3EYBygr4gnn8QocYAAAAUlXMcBlOPC4y1nKxHpFZR1k7iaNuD36HFAAAAHyQDCND6VgcDNaOsBMnQ2OHdFng</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{407A71A9-E871-4506-B26D-E6B84057508A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="reg">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0715F059-A96F-42FC-88E7-AA298C851E47}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="reg2">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga roles"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{699DA234-ECD5-42DB-AEC7-98C2BD224BCA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga roles"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga roles\Destino de conjunto de registros 1"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Destino de conjunto de registros;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea y rellena un conjunto de registros ADO en memoria que está disponible fuera del flujo de datos. Los scripts y otros elementos de paquete pueden usar el conjunto de registros. Por ejemplo, se usa un conjunto de registros para almacenar el nombre de los archivos que se van a cargar en el almacenamiento de datos."
+              name="Destino de conjunto de registros 1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el conjunto de registros."
+                  name="VariableName">User::reg2</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros]"
+                  hasSideEffects="true"
+                  name="Entrada de destino de conjunto de registros">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[EJERCICIO]"
+                      cachedDataType="r8"
+                      cachedName="EJERCICIO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[EJERCICIO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[MES]"
+                      cachedDataType="r8"
+                      cachedName="MES"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MES]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[TIPO_NOMINA]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TIPO_NOMINA"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_NOMINA]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DESCRIPCION"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[NO_CUR]"
+                      cachedDataType="r8"
+                      cachedName="NO_CUR"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NO_CUR]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[FECHA_CUR]"
+                      cachedDataType="date"
+                      cachedName="FECHA_CUR"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[FECHA_CUR]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[ID_NOMINA]"
+                      cachedDataType="r8"
+                      cachedName="ID_NOMINA"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ID_NOMINA]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[NUMERO_DOCUMENTO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NUMERO_DOCUMENTO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NUMERO_DOCUMENTO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[APELLIDOS_NOMBRES]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="APELLIDOS_NOMBRES"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[APELLIDOS_NOMBRES]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[CODIGO_DEDUCCION]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODIGO_DEDUCCION"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_DEDUCCION]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[TIPO_RUBRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TIPO_RUBRO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_RUBRO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[CODIGO_RUBRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODIGO_RUBRO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_RUBRO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[NOMBRE_RUBRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMBRE_RUBRO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NOMBRE_RUBRO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[MONTO_CALCULADO]"
+                      cachedDataType="r8"
+                      cachedName="MONTO_CALCULADO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_CALCULADO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[MONTO_DESCONTADO]"
+                      cachedDataType="r8"
+                      cachedName="MONTO_DESCONTADO"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_DESCONTADO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[MONTO_PENDIENTE]"
+                      cachedDataType="r8"
+                      cachedName="MONTO_PENDIENTE"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_PENDIENTE]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Carga roles\Destino de OLE DB 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[roles_funcionarios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga roles\Destino de OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[win-sqlserv-01.Roles_dgac.adminsql]"
+                  connectionManagerRefId="Package.ConnectionManagers[win-sqlserv-01.Roles_dgac.adminsql]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[EJERCICIO]"
+                      cachedDataType="r8"
+                      cachedName="EJERCICIO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[EJERCICIO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[EJERCICIO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[MES]"
+                      cachedDataType="r8"
+                      cachedName="MES"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MES]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MES]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[TIPO_NOMINA]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TIPO_NOMINA"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_NOMINA]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_NOMINA]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[DESCRIPCION]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DESCRIPCION"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[DESCRIPCION]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[NO_CUR]"
+                      cachedDataType="r8"
+                      cachedName="NO_CUR"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NO_CUR]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NO_CUR]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[FECHA_CUR]"
+                      cachedDataType="date"
+                      cachedName="FECHA_CUR"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_CUR]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[FECHA_CUR]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[ID_NOMINA]"
+                      cachedDataType="r8"
+                      cachedName="ID_NOMINA"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NOMINA]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ID_NOMINA]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[NUMERO_DOCUMENTO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NUMERO_DOCUMENTO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NUMERO_DOCUMENTO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NUMERO_DOCUMENTO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[APELLIDOS_NOMBRES]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="APELLIDOS_NOMBRES"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[APELLIDOS_NOMBRES]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[APELLIDOS_NOMBRES]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[CODIGO_DEDUCCION]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODIGO_DEDUCCION"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_DEDUCCION]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_DEDUCCION]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[TIPO_RUBRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TIPO_RUBRO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_RUBRO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_RUBRO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[CODIGO_RUBRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CODIGO_RUBRO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_RUBRO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_RUBRO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[NOMBRE_RUBRO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMBRE_RUBRO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE_RUBRO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NOMBRE_RUBRO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[MONTO_CALCULADO]"
+                      cachedDataType="r8"
+                      cachedName="MONTO_CALCULADO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MONTO_CALCULADO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_CALCULADO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[MONTO_DESCONTADO]"
+                      cachedDataType="r8"
+                      cachedName="MONTO_DESCONTADO"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MONTO_DESCONTADO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_DESCONTADO]" />
+                    <inputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].Columns[MONTO_PENDIENTE]"
+                      cachedDataType="r8"
+                      cachedName="MONTO_PENDIENTE"
+                      externalMetadataColumnId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MONTO_PENDIENTE]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_PENDIENTE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[EJERCICIO]"
+                      dataType="i8"
+                      name="EJERCICIO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MES]"
+                      dataType="i8"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_NOMINA]"
+                      dataType="wstr"
+                      length="255"
+                      name="TIPO_NOMINA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="255"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NO_CUR]"
+                      dataType="r8"
+                      name="NO_CUR" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[FECHA_CUR]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_CUR" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_NOMINA]"
+                      dataType="r8"
+                      name="ID_NOMINA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NUMERO_DOCUMENTO]"
+                      dataType="wstr"
+                      length="30"
+                      name="NUMERO_DOCUMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[APELLIDOS_NOMBRES]"
+                      dataType="wstr"
+                      length="255"
+                      name="APELLIDOS_NOMBRES" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_DEDUCCION]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODIGO_DEDUCCION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[TIPO_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      name="TIPO_RUBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODIGO_RUBRO]"
+                      dataType="wstr"
+                      length="80"
+                      name="CODIGO_RUBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMBRE_RUBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MONTO_CALCULADO]"
+                      dataType="r8"
+                      name="MONTO_CALCULADO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MONTO_DESCONTADO]"
+                      dataType="r8"
+                      name="MONTO_DESCONTADO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[MONTO_PENDIENTE]"
+                      dataType="r8"
+                      name="MONTO_PENDIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga roles\Origen de Excel 1"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">'Sheet 1$'</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga roles\Origen de Excel 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[EJERCICIO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[EJERCICIO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[EJERCICIO]"
+                      name="EJERCICIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MES]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MES]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MES]"
+                      name="MES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_NOMINA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[TIPO_NOMINA]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_NOMINA]"
+                      name="TIPO_NOMINA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[DESCRIPCION]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[DESCRIPCION]"
+                      name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NO_CUR]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[NO_CUR]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NO_CUR]"
+                      name="NO_CUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[FECHA_CUR]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[FECHA_CUR]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[FECHA_CUR]"
+                      name="FECHA_CUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ID_NOMINA]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[ID_NOMINA]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[ID_NOMINA]"
+                      name="ID_NOMINA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NUMERO_DOCUMENTO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[NUMERO_DOCUMENTO]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NUMERO_DOCUMENTO]"
+                      name="NUMERO_DOCUMENTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[APELLIDOS_NOMBRES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[APELLIDOS_NOMBRES]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[APELLIDOS_NOMBRES]"
+                      name="APELLIDOS_NOMBRES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_DEDUCCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO_DEDUCCION]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_DEDUCCION]"
+                      name="CODIGO_DEDUCCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_RUBRO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[TIPO_RUBRO]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[TIPO_RUBRO]"
+                      name="TIPO_RUBRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_RUBRO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO_RUBRO]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[CODIGO_RUBRO]"
+                      name="CODIGO_RUBRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NOMBRE_RUBRO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE_RUBRO]"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[NOMBRE_RUBRO]"
+                      name="NOMBRE_RUBRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_CALCULADO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MONTO_CALCULADO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_CALCULADO]"
+                      name="MONTO_CALCULADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_DESCONTADO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MONTO_DESCONTADO]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_DESCONTADO]"
+                      name="MONTO_DESCONTADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_PENDIENTE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MONTO_PENDIENTE]"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].Columns[MONTO_PENDIENTE]"
+                      name="MONTO_PENDIENTE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[EJERCICIO]"
+                      dataType="r8"
+                      name="EJERCICIO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MES]"
+                      dataType="r8"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[TIPO_NOMINA]"
+                      dataType="wstr"
+                      length="255"
+                      name="TIPO_NOMINA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="255"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[NO_CUR]"
+                      dataType="r8"
+                      name="NO_CUR" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[FECHA_CUR]"
+                      dataType="date"
+                      name="FECHA_CUR" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[ID_NOMINA]"
+                      dataType="r8"
+                      name="ID_NOMINA" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[NUMERO_DOCUMENTO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NUMERO_DOCUMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[APELLIDOS_NOMBRES]"
+                      dataType="wstr"
+                      length="255"
+                      name="APELLIDOS_NOMBRES" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO_DEDUCCION]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODIGO_DEDUCCION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[TIPO_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      name="TIPO_RUBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      name="CODIGO_RUBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMBRE_RUBRO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MONTO_CALCULADO]"
+                      dataType="r8"
+                      name="MONTO_CALCULADO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MONTO_DESCONTADO]"
+                      dataType="r8"
+                      name="MONTO_DESCONTADO" />
+                    <externalMetadataColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel].ExternalColumns[MONTO_PENDIENTE]"
+                      dataType="r8"
+                      name="MONTO_PENDIENTE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[EJERCICIO]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[EJERCICIO]"
+                      name="EJERCICIO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MES]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MES]"
+                      name="MES" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[TIPO_NOMINA]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[TIPO_NOMINA]"
+                      name="TIPO_NOMINA" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[DESCRIPCION]"
+                      name="DESCRIPCION" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[NO_CUR]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[NO_CUR]"
+                      name="NO_CUR" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[FECHA_CUR]"
+                      dataType="date"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[FECHA_CUR]"
+                      name="FECHA_CUR" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ID_NOMINA]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ID_NOMINA]"
+                      name="ID_NOMINA" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[NUMERO_DOCUMENTO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[NUMERO_DOCUMENTO]"
+                      name="NUMERO_DOCUMENTO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[APELLIDOS_NOMBRES]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[APELLIDOS_NOMBRES]"
+                      name="APELLIDOS_NOMBRES" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[CODIGO_DEDUCCION]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[CODIGO_DEDUCCION]"
+                      name="CODIGO_DEDUCCION" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[TIPO_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[TIPO_RUBRO]"
+                      name="TIPO_RUBRO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[CODIGO_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[CODIGO_RUBRO]"
+                      name="CODIGO_RUBRO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[NOMBRE_RUBRO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[NOMBRE_RUBRO]"
+                      name="NOMBRE_RUBRO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MONTO_CALCULADO]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MONTO_CALCULADO]"
+                      name="MONTO_CALCULADO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MONTO_DESCONTADO]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MONTO_DESCONTADO]"
+                      name="MONTO_DESCONTADO" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MONTO_PENDIENTE]"
+                      dataType="r8"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[MONTO_PENDIENTE]"
+                      name="MONTO_PENDIENTE" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga roles.Paths[Salida de error de destino de OLE DB]"
+              endId="Package\Carga roles\Destino de conjunto de registros 1.Inputs[Entrada de destino de conjunto de registros]"
+              name="Salida de error de destino de OLE DB"
+              startId="Package\Carga roles\Destino de OLE DB 1.Outputs[Salida de error de destino de OLE DB]" />
+            <path
+              refId="Package\Carga roles.Paths[Salida de origen de Excel]"
+              endId="Package\Carga roles\Destino de OLE DB 1.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de Excel"
+              startId="Package\Carga roles\Origen de Excel 1.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Carga roles"
+          TopLeft="72,115" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga roles">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga roles\Destino de OLE DB 1"
+          TopLeft="132,404" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Carga roles\Origen de Excel 1"
+          TopLeft="56,181" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\Carga roles\Destino de conjunto de registros 1"
+          TopLeft="331,185" />
+        <EdgeLayout
+          Id="Package\Carga roles.Paths[Salida de error de destino de OLE DB]"
+          TopLeft="248.666666666667,404">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202.833333333333,-177"
+              Start="0,0"
+              End="202.833333333333,-169.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-67.7513997760358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-67.7513997760358"
+                    Point2="0,-71.7513997760358"
+                    Point3="4,-71.7513997760358" />
+                  <mssgle:LineSegment
+                    End="198.833333333333,-71.7513997760358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="198.833333333333,-71.7513997760358"
+                    Point2="202.833333333333,-71.7513997760358"
+                    Point3="202.833333333333,-75.7513997760358" />
+                  <mssgle:LineSegment
+                    End="202.833333333333,-169.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="18.6251822916665,-66.7513997760358,165.58296875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga roles.Paths[Salida de origen de Excel]"
+          TopLeft="137,223">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.3333333333333,181"
+              Start="0,0"
+              End="55.3333333333333,173.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.627099664054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,103.627099664054"
+                    Point2="0,107.627099664054"
+                    Point3="4,107.627099664054" />
+                  <mssgle:LineSegment
+                    End="51.3333333333333,107.627099664054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.3333333333333,107.627099664054"
+                    Point2="55.3333333333333,107.627099664054"
+                    Point3="55.3333333333333,111.627099664054" />
+                  <mssgle:LineSegment
+                    End="55.3333333333333,173.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga roles\Destino de OLE DB 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
